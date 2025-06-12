@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Landing Page</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #111827;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .logo span {
+      color: #4f46e5;
+    }
+
+    .navbar .logo .hiring-badge {
+      background: #ffdd00;
+      color: black;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      margin-left: 0.5rem;
+    }
+
+    .navbar .menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar .menu a {
+      position: relative;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar .menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: white;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .navbar .menu a:hover {
+      color: #4f46e5;
+    }
+
+    .navbar .menu a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .navbar .menu .dropdown {
+      position: relative;
+    }
+
+    .navbar .menu .dropdown .arrow {
+      font-size: 0.75rem;
+      margin-left: 0.25rem;
+    }
+
+    .navbar .menu .dropdown ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #111827;
+      border: 1px solid #374151;
+      padding: 0.5rem 0;
+      list-style: none;
+      min-width: 150px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .menu .dropdown:hover ul {
+      display: block;
+    }
+
+    .navbar .menu .dropdown ul li {
+      padding: 0.5rem 1rem;
+    }
+
+    .navbar .menu .dropdown ul li a {
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar .menu .dropdown ul li a:hover {
+      color: #4f46e5;
+    }
+
+    .navbar .actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .navbar .actions .btn {
+      background: white;
+      color: #111827;
+      padding: 0.75rem 1.5rem;
+      font-weight: bold;
+      border-radius: 0.375rem;
+      transition: background 0.3s ease;
+    }
+
+    .navbar .actions .btn:hover {
+      background: #e5e5f7;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar .menu {
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+      }
+
+      .navbar .menu a {
+        padding: 0.5rem 0;
+        width: 100%;
+        text-align: left;
+      }
+
+      .navbar .actions {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo">
+        <span>Cal.ai</span>
+        <span class="hiring-badge">Hiring</span>
+      </div>
+
+      <!-- Menu -->
+      <ul class="menu">
+        <li class="dropdown">
+          <a href="#solutions">Solutions <span class="arrow">▾</span></a>
+          <ul>
+            <li><a href="#">Solution 1</a></li>
+            <li><a href="#">Solution 2</a></li>
+            <li><a href="#">Solution 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#enterprise">Enterprise</a></li>
+        <li><a href="#templates">Templates</a></li>
+        <li class="dropdown">
+          <a href="#developer">Developer <span class="arrow">▾</span></a>
+          <ul>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">API Reference</a></li>
+            <li><a href="#">SDKs</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#resources">Resources <span class="arrow">▾</span></a>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="actions">
+        <a href="#sign-in" class="btn">Sign in</a>
+        <a href="#get-started" class="btn">Get started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <h1>Build Something Amazing with Our Platform</h1>
+        <p>A powerful, modern solution to help you launch your next great idea faster.</p>
+        <a href="#get-started" class="btn">Get Started Free</a>
+      </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="features">
+      <div class="container">
+        <h2>Why Choose Us</h2>
+        <!-- Features Grid -->
+      </div>
+    </section>
+
+    <!-- Enterprise Section -->
+    <section id="enterprise" class="pricing">
+      <div class="container">
+        <h2>Enterprise Solutions</h2>
+        <!-- Pricing Cards -->
+      </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates" class="templates">
+      <div class="container">
+        <h2>Browse Our Templates</h2>
+        <!-- Template Cards -->
+      </div>
+    </section>
+
+    <!-- Developer Section -->
+    <section id="developer" class="developer">
+      <div class="container">
+        <h2>For Developers</h2>
+        <!-- Developer Resources -->
+      </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+      <div class="container">
+        <h2>Explore Our Resources</h2>
+        <!-- Resource Cards -->
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <h2>Simple & Transparent Pricing</h2>
+        <!-- Pricing Cards -->
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="get-started" class="cta">
+      <div class="container">
+        <h2>Ready to Launch Your Next Big Idea?</h2>
+        <p>Join thousands of developers and startups who trust our platform to build their products.</p>
+        <a href="#" class="btn">Get Started Free</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; 2025 Your Company, Inc. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
